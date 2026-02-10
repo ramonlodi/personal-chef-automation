@@ -19,9 +19,10 @@ O fluxo opera de forma 100% serverless e automática:
 * **Gestão de PDF:** Geração de documentos profissionais via código.
 * **Segurança:** Gestão de credenciais via `PropertiesService`.
 
-### 🛠️ Configuração para Teste
+### 🛠️ Configuração
 1.  **Variáveis de Ambiente:** No Apps Script, vá em *Configurações do Projeto* e adicione a propriedade `OPENROUTER_API_KEY`, configure uma API key.
-2.  **Gatilhos:** Adicione um gatilho para a função `onFormSubmit` com o evento "Ao enviar formulário".
+2. **Gatilhos**: Para execução em produção, adicione um gatilho para a função `onFormSubmit` com o evento "Ao enviar formulário".
+                 Para testes manuais, a função `testeLocal` pode ser executada diretamente pelo editor do Apps Script, sem necessidade de envio do formulário.
 
 ### 🎯 Objetivo do Projeto
 Este projeto demonstra a viabilidade de automações robustas utilizando ferramentas do ecossistema Google integradas a modelos de linguagem (LLMs). Ele resolve o problema de tempo de resposta e padronização em serviços de Personal Chef, unindo lógica de negócio e engenharia de prompt.
