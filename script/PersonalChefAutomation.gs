@@ -1,21 +1,65 @@
+/**
+ * Personal Chef Automation
+ * Entrada esperada: objeto no formato de e.namedValues (Google Forms)
+ * Mock disponível na função testeLocal()
+ */
+
 const API_KEY = PropertiesService
   .getScriptProperties()
   .getProperty("OPENROUTER_API_KEY");
 
 function onFormSubmit(e) {
   try {
-    const respostas = e.namedValues;
-    const nomeCliente = respostas["Nome:"]?.[0] || "Cliente";
-
-    const resultado = calcularValor(respostas);
-    const cardapioIA = gerarCardapioIA(respostas);
-    const pdf = gerarPDF(respostas, resultado, cardapioIA);
-    
-    enviarEmailComPDFParaMim(pdf, nomeCliente);
+    const respostas = e.namedValues; // <-- JSON REAL DO GOOGLE FORMS
+    executarFluxo(respostas);
   } catch (error) {
     Logger.log("Erro: " + error.message);
-    MailApp.sendEmail("email@email.com", "Erro no Script Personal Chef", error.message);
+    MailApp.sendEmail(
+      "email@email.com",
+      "Erro no Script Personal Chef",
+      error.message
+    );
   }
+}
+
+// Use este método para testar sem enviar o formulário
+function testeLocal() {
+  const respostasMock = {
+    "Nome:": ["Example Client"],
+    "Telefone (Whatsapp):": ["+00 90000-0000"],
+    "Endereço:": ["Downtown Area – City/State"],
+    "Para quais dias da semana você precisa de refeição pronta?": ["Segunda, Terça, Quarta, Quinta, Sexta"],
+    "Quais refeições você deseja incluir:": ["Almoço, Jantar"],
+    "Quantas pessoas irão comer as refeições?": ["3"],
+    "Alguém em sua casa segue alguma dieta?": ["Não"],
+    "Quais tipos de pratos você prefere?": ["Prefiro o tradicional"],
+    "Algum alimento que não consome?": ["Peixe"],
+    "Os consumidores possuem alguma alergia alimentar?": ["Nenhuma"],
+    "O que tem na sua cozinha? (Selecione o que possui com um bom funcionamento)": [
+      "Fogão, Forno, Geladeira, Freezer, Liquidificador, Panela de pressão"
+    ],
+    "Você possui panelas, potes, tábuas e etc.? Ou prefere que a profissional leve-os?": [
+      "Prefiro que traga os seus"
+    ],
+    "Sobre os ingredientes, o que funciona melhor?": [
+      "Cliente compra de acordo com a lista enviada pelo profissional"
+    ],
+    "Gosta de experimentar receitas novas ou prefere o tradicional?": [
+      "Prefiro o tradicional"
+    ]
+  };
+
+  executarFluxo(respostasMock);
+}
+
+function executarFluxo(respostas) {
+  const nomeCliente = respostas["Nome:"]?.[0] || "Cliente";
+
+  const resultado = calcularValor(respostas);
+  const cardapioIA = gerarCardapioIA(respostas);
+  const pdf = gerarPDF(respostas, resultado, cardapioIA);
+
+  enviarEmailComPDFParaMim(pdf, nomeCliente);
 }
 
 function gerarCardapioIA(respostas) {
