@@ -5,6 +5,12 @@ O sistema conta com um motor de cálculo de regras de negócio e integração co
 
 > Projeto focado em automação de processos, regras de negócio e integração com APIs externas, utilizando JavaScript em ambiente serverless.
 
+### 🧩 Tecnologias Utilizadas
+- Google Apps Script (JavaScript)
+- Google Forms
+- OpenRouter API (LLMs)
+- HTML/CSS para geração de PDF
+  
 ### 📌 Workflow do Sistema
 O fluxo opera de forma 100% serverless e automática:
 1.  **Entrada:** Cliente envia o formulário do Google.
