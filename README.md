@@ -35,8 +35,7 @@ Este projeto demonstra a viabilidade de automações robustas utilizando ferrame
 
 ### 🖼️ Preview do Resultado
 Você pode visualizar um exemplo do orçamento gerado na pasta de documentação:
-👉 **[Ver Exemplo de PDF (docs/Ficha_Trabalho_Example_Client.pdf)](docs/Ficha_Trabalho_Example_Client.pdf)**
-
+👉 **[docs/Ficha_Trabalho_Example Client.pdf]**
 --- 
 
 💻 Desenvolvido por **Ramon Lodi de Sousa** 
