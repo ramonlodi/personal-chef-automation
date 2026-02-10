@@ -34,8 +34,8 @@ O fluxo opera de forma 100% serverless e automática:
 Este projeto demonstra a viabilidade de automações robustas utilizando ferramentas do ecossistema Google integradas a modelos de linguagem (LLMs). Ele resolve o problema de tempo de resposta e padronização em serviços de Personal Chef, unindo lógica de negócio e engenharia de prompt.
 
 ### 🖼️ Preview do Resultado
-Você pode visualizar um exemplo do orçamento gerado na pasta de documentação:
-👉 **[docs/Ficha_Trabalho_Example Client.pdf]**
+Você pode visualizar um exemplo do orçamento gerado na pasta de documentação: [docs/Ficha_Trabalho_Example Client.pdf]
+
 --- 
 
 💻 Desenvolvido por **Ramon Lodi de Sousa** 
